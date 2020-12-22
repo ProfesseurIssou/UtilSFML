@@ -27,3 +27,17 @@ std::string receivedMessage(sf::TcpSocket &socket){
   packetReceive >> msgIn;
   return msgIn;
 }
+
+//OTHER
+int strToInt(std::string text){
+  //On cree l'objet de la classe sstream
+  std::stringstream convert(text);
+  //On convertie
+  int x;
+  convert >> x;
+  return x;
+}
+std::string intToStr(int number){
+  std::string text = std::to_string(number);
+  return text;
+}
