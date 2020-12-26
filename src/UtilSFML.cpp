@@ -42,7 +42,7 @@ bool Server::start(int port){
   return false; //Error
 }
 bool Server::newClientRequest(){
-  if(selector.wait()){            //Si l'un des sockets a recus une requete
+  if(selector.wait(sf::seconds(timeoutSelectorWait))){//Si l'un des sockets a recus une requete
     if(selector.isReady(listener)){ //Si le socket d'ecoute a recus une requete
       return true;                    //nouveau client
     }
