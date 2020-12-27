@@ -58,10 +58,8 @@ int Server::acceptClient(){
 }
 int Server::getPosClientRequests(){
   if(selector.wait(sf::seconds(timeoutSelectorWait))){//Si l'un des socket a recus un packet
-    if(currentClientReceive == clientsList.size()){     //Si on arrive au bout de la liste
-      currentClientReceive = 0;                           //On repart au premier client
-    }
-    for(int i = currentClientReceive;i<clientsList.size();i++){ //Pour chaque client de la liste
+    currentClientReceive = 0;                           //On repart au premier client
+    for(int i = 0;i<clientsList.size();i++){ //Pour chaque client de la liste
       if(selector.isReady(*clientsList[i])){                      //Si le client a envoyer un packet
         currentClientReceive = i+1;                                 //On sauvegarde la position du future client (suivant)
         return i;                                                   //On retourne la position du client

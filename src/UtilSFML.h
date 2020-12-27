@@ -19,7 +19,7 @@ class Server{
   public:
     //Variables
     int serverPort;
-    float timeoutSelectorWait = 0.5;          //Temp d'attente de connexion
+    float timeoutSelectorWait = 0.1;          //Temp d'attente de connexion
     std::vector<sf::TcpSocket*> clientsList;  //Liste de tout les pointeurs de tout les clients
     int currentClientReceive = 0;             //Position du client dans la liste (receivePacket pour savoir quel client nous a envoyer la données et ne pas penaliser les derniers de la liste )
 
