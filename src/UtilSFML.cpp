@@ -87,6 +87,7 @@ bool Client::connect(std::string ip,int port){
     return false;//Error
   }
   serverSocket.setBlocking(false);  //On desactive le blockage de reponse
+  serverIp = ip;
   return true;  //Done
 }
 bool Client::sendPacket(sf::Packet packet){
